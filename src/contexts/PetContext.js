@@ -1,37 +1,26 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from "react";
 
 export const PetContext = createContext();
 
 export const PetProvider = (props) => {
+  const [pets, setPets] = useState([]);
 
-    const [pet, setPet] = useState([
-        {
-            name: 'Toby',
-            gender: 'Male',
-            age: 3,
-            type: 'dog',
-            service: 'urgencies'
-        },
-        {
-            name: 'Max',
-            gender: 'Female',
-            age: 2,
-            type: 'cat',
-            service: 'valoration'
-        },
-        {
-            name: 'Jacob',
-            gender: 'Male',
-            age: 2,
-            type: 'bird',
-            service: 'urgencies'
-        },
-    ])
+  useEffect(() => {
+    if (pets.length > 0) {
+      localStorage.setItem("pets", JSON.stringify(pets));
+    }
+  }, [pets]);
 
-    return (
-        <PetContext.Provider value={[pet, setPet]}>
-            {props.children}
-        </PetContext.Provider>
-    )
-}
+  useEffect(() => {
+    if (localStorage.getItem("pets") !== null) {
+      let storedPets = JSON.parse(localStorage.getItem("pets"));
+      setPets([...storedPets]);
+    }
+  }, []);
 
+  return (
+    <PetContext.Provider value={[pets, setPets]}>
+      {props.children}
+    </PetContext.Provider>
+  );
+};
