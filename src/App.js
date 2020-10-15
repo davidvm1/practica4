@@ -1,11 +1,18 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { PetProvider } from "./contexts/PetContext";
+import PetForm from "./components/PetForm";
+import PetList from "./components/Petlist";
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <PetProvider>
+      <div className="App">
+        <h1>Veterinary Clinic</h1>
+        <PetForm />
+        <PetList />
+      </div>
+    </PetProvider>
   );
 }
 
