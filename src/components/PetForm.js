@@ -32,15 +32,15 @@ const StyledInput = styled.input`
 `;
 
 const StyledButton = styled.button`
-    background: #007ea7;
-    color: white;
-    border: none;
-    height: 40px;
-    width: 20%;
-    margin: 10px;
-    font-size: 1.1rem;
-    border-radius: 3px;
-`
+  background: #007ea7;
+  color: white;
+  border: none;
+  height: 40px;
+  width: 20%;
+  margin: 10px;
+  font-size: 1.1rem;
+  border-radius: 3px;
+`;
 
 const PetForm = () => {
   const [name, setName] = useState("");
@@ -89,6 +89,7 @@ const PetForm = () => {
     <StyledForm autoComplete="off" onSubmit={addPet}>
       <StyledLabel htmlFor="name">Pet Name:</StyledLabel>
       <StyledInput
+        required
         value={name}
         onChange={handleNameChange}
         type="text"
@@ -98,6 +99,7 @@ const PetForm = () => {
 
       <StyledLabel htmlFor="gender">Gender:</StyledLabel>
       <StyledInput
+        required
         value={gender}
         onChange={handleGenderChange}
         list="gender"
@@ -111,6 +113,7 @@ const PetForm = () => {
 
       <StyledLabel htmlFor="age">Age:</StyledLabel>
       <StyledInput
+        required
         value={age}
         onChange={handleAgeChange}
         type="number"
@@ -120,6 +123,7 @@ const PetForm = () => {
 
       <StyledLabel htmlFor="type">Pet Type:</StyledLabel>
       <StyledInput
+        required
         value={type}
         onChange={handleTypeChange}
         list="type"
@@ -135,6 +139,7 @@ const PetForm = () => {
 
       <StyledLabel htmlFor="service">Service:</StyledLabel>
       <StyledInput
+        required
         value={service}
         onChange={handleServiceChange}
         list="service"
