@@ -1,15 +1,20 @@
 import React from "react";
 import "./App.css";
-import { PetProvider, PetContext } from "./contexts/PetContext";
+import { PetProvider } from "./contexts/PetContext";
 import PetForm from "./components/PetForm";
 import PetList from "./components/Petlist";
+import styled from "styled-components";
+
+const StyledH1 = styled.h1`
+  font-size: 50px;
+  color: #007ea7;
+`;
 
 function App() {
-
   return (
     <PetProvider>
       <div className="App">
-        <h1>Veterinary Clinic</h1>
+        <StyledH1>Veterinary Clinic</StyledH1>
         <PetForm />
         <PetList />
       </div>

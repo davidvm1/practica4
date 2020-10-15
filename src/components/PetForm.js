@@ -1,5 +1,46 @@
 import React, { useState, useContext } from "react";
 import { PetContext } from "../contexts/PetContext";
+import styled from "styled-components";
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #eff4f9;
+  border: 2px solid #2f2f2f;
+  width: 40%;
+  box-shadow: 4px 3px 5px -3px rgba(135, 128, 135, 0.93);
+  margin: 0 auto;
+`;
+
+const StyledLabel = styled.label`
+  color: #007ea7;
+  font-size: 1.2rem;
+  font-weight: 600;
+`;
+
+const StyledInput = styled.input`
+  width: 50%;
+  height: 30px;
+  border: 0.2px solid gray;
+  padding-left: 10px;
+  border-radius: 5px;
+`;
+
+const StyledButton = styled.button`
+    background: #007ea7;
+    color: white;
+    border: none;
+    height: 40px;
+    width: 20%;
+    margin: 10px;
+    font-size: 1.1rem;
+    border-radius: 3px;
+`
 
 const PetForm = () => {
   const [name, setName] = useState("");
@@ -45,9 +86,9 @@ const PetForm = () => {
   };
 
   return (
-    <form autoComplete="off" onSubmit={addPet}>
-      <label htmlFor="name">Pet Name:</label>
-      <input
+    <StyledForm autoComplete="off" onSubmit={addPet}>
+      <StyledLabel htmlFor="name">Pet Name:</StyledLabel>
+      <StyledInput
         value={name}
         onChange={handleNameChange}
         type="text"
@@ -55,8 +96,8 @@ const PetForm = () => {
         placeholder="Input you pet's name"
       />
 
-      <label htmlFor="gender">Gender:</label>
-      <input
+      <StyledLabel htmlFor="gender">Gender:</StyledLabel>
+      <StyledInput
         value={gender}
         onChange={handleGenderChange}
         list="gender"
@@ -68,8 +109,8 @@ const PetForm = () => {
         <option value="Female" />
       </datalist>
 
-      <label htmlFor="age">Age:</label>
-      <input
+      <StyledLabel htmlFor="age">Age:</StyledLabel>
+      <StyledInput
         value={age}
         onChange={handleAgeChange}
         type="number"
@@ -77,8 +118,8 @@ const PetForm = () => {
         placeholder="Input you pet's age"
       />
 
-      <label htmlFor="type">Pet Type:</label>
-      <input
+      <StyledLabel htmlFor="type">Pet Type:</StyledLabel>
+      <StyledInput
         value={type}
         onChange={handleTypeChange}
         list="type"
@@ -92,8 +133,8 @@ const PetForm = () => {
         <option value="Bird" />
       </datalist>
 
-      <label htmlFor="service">Service:</label>
-      <input
+      <StyledLabel htmlFor="service">Service:</StyledLabel>
+      <StyledInput
         value={service}
         onChange={handleServiceChange}
         list="service"
@@ -105,8 +146,8 @@ const PetForm = () => {
         <option value="Emergencies" />
         <option value="Hospitalization" />
       </datalist>
-      <button type="submit">Add Pet</button>
-    </form>
+      <StyledButton type="submit">Add Pet</StyledButton>
+    </StyledForm>
   );
 };
 
